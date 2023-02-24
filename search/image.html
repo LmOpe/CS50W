@@ -3,16 +3,20 @@
     <head>
         <title>Search</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="theme-color" content="rgb(80, 153, 236)">
+        <link rel="stylesheet" href="styles.css">
     </head>
-    <body>
+    <body class="container">
         <nav>
             <a href="index.html">Google Search</a>
             <a href="advanced.html">Advanced Search</a>
         </nav>
-        <form action="https://www.google.com.ng/search" method="get">
-            <input aria-autocomplete="list" autocomplete="off" autofocus type="text" placeholder="Enter your query" name="q">
+        <form class="flex" action="https://www.google.com.ng/search" method="get">
+            <input aria-autocomplete="list" autocomplete="off" type="text" placeholder="Enter your query" name="q">
+            <div>
             <input type="submit" value="Image Search">
             <input type="hidden" name="tbm" value="isch">
+            </div>
         </form>
     </body>
 </html>

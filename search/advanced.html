@@ -3,19 +3,26 @@
     <head>
         <title>Search</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="theme-color" content="rgb(80, 153, 236)">
+        <link rel="stylesheet" href="styles.css">
     </head>
-    <body>
-        <nav>
+    <body class="bdgrid">
+        <nav  class="continer">
             <a href="image.html">Image Search</a>
             <a href="index.html">Google Search</a>
         </nav>
-        <h3>Find pages with...</h3>
-        <form action="https://www.google.com.ng/search">
-            <p>all these words:</p> <input type="text" name="as_q" autofocus autocomplete="off">
-            <p>this exact word or phrase:</p> <input type="text" name="as_epq">
-            <p>any of these words:</p> <input type="text" name="as_oq">
-            <p>none of these words:</p> <input type="text" name="as_eq">
-            <input type="submit" value="Advanced Search">
+        <div>
+            <label for="#adv">Find pages with...</label>
+        </div>
+        <form class="grid" id="adv" action="https://www.google.com.ng/search">
+            <p class="grid-item">all these words:</p> <input class="grid-item" type="text" name="as_q" autocomplete="off">
+            <p class="grid-item">this exact word or phrase:</p> <input class="grid-item" type="text" name="as_epq">
+            <p class="grid-item">any of these words:</p> <input class="grid-item" type="text" name="as_oq">
+            <p class="grid-item">none of these words:</p> <input class="grid-item" type="text" name="as_eq">
+            <div></div>
+            <div>
+                <input id="advBtn" type="submit" value="Advanced Search">
+            </div>
         </form>
     </body>
 </html>
