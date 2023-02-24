@@ -1,0 +1,140 @@
+$margin: 10px;
+$padding: 5px;
+$border: 1px solid rgb(218, 215, 215);
+$display: grid;
+%container
+{
+    display: flex;
+    flex-direction: column;
+}
+%grid_d
+{
+    
+}
+.container 
+{
+    @extend %container
+}
+nav
+{
+    color: rgb(53, 52, 52);
+
+    a
+    {
+        padding: $padding;
+        margin: $margin;
+        text-decoration: none;
+        float: right;
+    }
+    a:hover{
+        text-decoration: underline;
+    }
+    
+}
+
+.flex
+{
+    @extend %container;
+    align-items: center;
+    justify-content: flex-end;
+    min-height: 350px;
+}
+
+input[type=text]
+{
+    min-height: 40px;
+    min-width: 600px;
+    padding: 5px;
+    border: $border;
+    border-radius: 25px;
+    margin: $margin;
+}
+
+input[type=text]:hover{
+    box-shadow: 2px -2px 2px rgb(238, 237, 237), -2px 2px 2px rgb(238, 237, 237), -2px -2px 2px rgb(238, 237, 237), 2px 2px 2px rgb(238, 237, 237);
+}
+
+input[type=submit]
+{
+    background-color: rgb(236, 236, 232);
+    margin: $margin;
+    margin-top: 25px;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    color: rgb(126, 124, 123);
+}
+
+input[type=submit]:hover
+{
+    border-color: rgb(255, 255, 255);
+    box-shadow: 1px -1px 1px rgb(238, 237, 237), -1px 1px 1px rgb(238, 237, 237), -1px -1px 1px rgb(238, 237, 237), 1px 1px 1px rgb(238, 237, 237);
+}
+
+@media (min-width: 1000px){
+    .grid
+    {
+        display: $display;
+        grid-template-columns: 200px auto;
+        margin: $margin;
+        padding: $padding;
+        row-gap: 5px;
+        column-gap: 5px;
+        input
+        {
+            min-height: 20px;
+        }
+    }
+
+    .bdgrid
+{
+    display: $display;
+    label
+    {
+        margin: 15px;
+    }
+    #advBtn
+    {
+        color: rgb(255, 255, 255);
+        background-color: rgb(80, 153, 236);
+        float: right;
+        min-height: 10px;
+        padding: 10px;
+    }
+}
+}
+@media (max-width: 999px)
+{
+    .grid{
+        grid-template-columns: auto;
+        display: $display;
+        margin: $margin;
+        padding: $padding;
+        row-gap: 5px;
+        column-gap: 5px;
+        input
+        {
+            min-height: 20px;
+        }
+    }
+    .bdgrid
+    {
+        display: $display;
+        label
+        {
+            margin: 15px;
+        }
+        #advBtn
+        {
+            color: rgb(255, 255, 255);
+            background-color: rgb(80, 153, 236);
+            float: right;
+            min-height: 10px;
+            padding: 10px;
+        }
+    }
+}
+#advBtn:hover
+        {
+            background-color: rgb(53, 139, 238);
+        }
