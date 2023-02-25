@@ -5,11 +5,11 @@
 {% endblock %}
 
 {% block body %}
-    <div>
         <form action="{% url 'encyclopedia:new' %}" method="post">
             {% csrf_token %}
+            <div class="flex">
             {{ form }}
             <input type="submit" name="new">
+            </div>
         </form>
-    </div>
 {% endblock %}
