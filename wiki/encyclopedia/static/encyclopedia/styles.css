@@ -1,0 +1,57 @@
+body {
+    margin: 0;
+    background-color: white;
+}
+
+code {
+    white-space: pre;
+}
+
+h1 {
+    margin-top: 0px;
+    padding-top: 20px;
+}
+
+textarea {
+    height: 90vh;
+    width: 80%;
+}
+
+.main {
+    padding: 10px;
+}
+
+.search {
+    width: 100%;
+    font-size: 15px;
+    line-height: 15px;
+}
+
+.sidebar {
+    background-color: #f0f0f0;
+    height: 100vh;
+    padding: 20px;
+}
+
+.sidebar h2 {
+    margin-top: 5px;
+}
+
+input[type="submit"]{
+    min-width: 100px;
+    min-height: 30px;
+    margin: 5px;
+    box-sizing: border-box;
+    cursor: pointer;
+    background-color: rgb(214, 219, 218);
+    float: right;
+    clear: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+input[value="Edit"]{
+    display: grid;
+}
