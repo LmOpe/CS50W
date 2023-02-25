@@ -43,7 +43,7 @@ def search(request):
     if title.upper() in entries:
         # Redirect user to the entry page
         return render(request, "encyclopedia/entry.html",{
-        "entry": util.get_entry(title),
+        "entry": markdown2.markdown(util.get_entry(title)),
         "title": title
         })
 
@@ -68,7 +68,7 @@ def new(request):
 
             util.save_entry(title, content)
             return render(request, "encyclopedia/entry.html",{
-                "entry": util.get_entry(title),
+                "entry": markdown2.markdown(util.get_entry(title)),
                 "title": title
             })
         else:
@@ -91,7 +91,7 @@ def edit(request):
 
             util.save_entry(title, content)
             return render(request, "encyclopedia/entry.html",{
-                "entry": util.get_entry(title),
+                "entry": markdown2.markdown(util.get_entry(title)),
                 "title": title
                 })
         else:
