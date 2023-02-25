@@ -55,3 +55,7 @@ a{
 input[value="Edit"]{
     display: grid;
 }
+
+.mt{
+    margin-top: 15px;
+}
