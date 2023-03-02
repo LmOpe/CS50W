@@ -1,0 +1,100 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+<h2>Listing: {{ listing.title }}</h2>
+
+{% if listing.photo_url %}
+<div>
+    <img width="200px" height="200px" src="{{ listing.photo_url}}" alt="{{ listing.title}}">
+</div>
+{% endif %}
+<div>
+    <p>{{ listing.description }}</p>
+    {% if user.is_authenticated %}
+    {% if listing.active %}
+    <form action="{% url 'add_watchlist' listing.id %}" method="post">
+        {% csrf_token %}
+        <input class="btn btn-primary" type="submit" name="watchlist" value="Add to Watchlist">
+    </form>
+    <form action="{% url 'add_watchlist' listing.id %}" method="post">
+        {% csrf_token %}
+        <input class="btn btn-primary" type="submit" name="remove" value="Remove from Watchlist">
+    </form>
+    {% endif %}
+    {% endif %}
+    <p>Price: {% if current_price %} ${{ current_price }} {% else %} ${{ listing.current_price }} {% endif %}</p>
+    {% if user.is_authenticated %}
+    <p>{% if listing.active %} {{ bids }} bid(s) so far. {% endif %} {% if message %} {{ message }} {% endif %}</p>
+
+    <!-- Get error message(s) -->
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS or message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+        <div class="{{ message.tags }}">{{ message }}</div>
+        {% endif %}
+        {% endfor %}
+    </ul>
+    {% endif %}
+    {% if listing.active %}
+    <form action="{% url 'bid' %}" method="post">
+        {% csrf_token %}
+        <input type="number" name="user_bid" placeholder="Bid">
+        <input type="number" hidden name="listing_id" value="{{ listing.id }}">
+        <input class="btn btn-primary" type="submit" value="Place Bid">
+    </form>
+    {% endif %}
+    {% endif %}
+    {% if user.username == owner %}
+    <form action="{% url 'bid' %}" method="post">
+        {% csrf_token %}
+        <input type="number" hidden name="listing_id" value="{{ listing.id }}">
+        <input class="btn btn-primary" type="submit" name="close" value="Close">
+    </form>
+    {% endif %}
+    <h3>Details</h3>
+    <ul>
+        <li>
+            Listed by: {{ listing.owner }}
+        </li>
+        <li>
+            Category: {% if listing.category %} {{ listing.category }} {% else %} No Category Listed {% endif %}
+        </li>
+        <li>
+            <small>Created on: {{ listing.created_on }}</small>
+        </li>
+    </ul>
+</div>
+{% if user.is_authenticated %}
+<div>
+    <form class="comment" action="{% url 'comment' %}" method="post">
+        {% csrf_token %}
+        <!-- Get error message(s) -->
+        {% if messages %}
+        <div class="messages">
+            {% for message in messages %}
+            {% if message.level == DEFAULT_MESSAGE_LEVELS.WARNING %}
+            <div class="{{ message.tags }}">{{ message }}</div>
+            {% endif %}
+            {% endfor %}
+        </div>
+        {% endif %}
+        <label for="comment">Add your comment</label>
+        <textarea name="comment" cols="30" rows="10"></textarea>
+        <input type="number" name="listing_id" hidden value="{{ listing.id }}">
+        <input class="btn btn-primary" type="submit" value="Comment">
+    </form>
+</div>
+
+<section>
+    <h3>Comments</h3>
+    <ul>
+        {% for comment in comments %}
+        <li>
+            <span class="commenter">{{ comment.commenter }}</span> says {{ comment.content }}
+        </li>
+        {% endfor %}
+    </ul>
+</section>
+{% endif %}
+{% endblock %}

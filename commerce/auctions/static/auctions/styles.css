@@ -1,0 +1,28 @@
+body {
+    padding: 10px;
+    margin: 5px;
+}
+
+input:not(.btn){
+    width: 200px;
+}
+
+.btn{
+    margin: 10px;
+}
+
+.comment{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    width: 400px;
+}
+.comment>.btn{
+    width: 120px;
+}
+
+.message, .messages{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: xx-large;
+    color: red;
+}
