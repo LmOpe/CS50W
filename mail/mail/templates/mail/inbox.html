@@ -10,10 +10,29 @@
     <button class="btn btn-sm btn-outline-primary" id="archived">Archived</button>
     <a class="btn btn-sm btn-outline-primary" href="{% url 'logout' %}">Log Out</a>
     <hr>
+    <div id="response"></div>
 
+    <!-- Displays all the mails in a particular mailbox -->
     <div id="emails-view">
     </div>
 
+    <!-- Display archive button -->
+    <div id="archive">
+    </div>
+
+    <!-- Display unarchive button -->
+    <div id="unarchive">
+    </div>
+
+    <!-- Display reply button -->
+    <div id="reply">
+    </div>
+
+    <!-- Displays the email clicked by the user -->
+    <div id="view-mail">
+    </div>
+
+    <!-- Displays form for user to send mail -->
     <div id="compose-view">
         <h3>New Email</h3>
         <form id="compose-form">
@@ -27,7 +46,7 @@
                 <input class="form-control" id="compose-subject" placeholder="Subject">
             </div>
             <textarea class="form-control" id="compose-body" placeholder="Body"></textarea>
-            <input type="submit" class="btn btn-primary"/>
+            <input type="submit" id="send-mail" class="btn btn-primary"/>
         </form>
     </div>
 {% endblock %}

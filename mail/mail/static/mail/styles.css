@@ -1,3 +1,18 @@
 textarea {
     min-height: 400px;
 }
+
+#emails-view > div{
+    border: 1px solid rgb(27, 27, 27);
+    margin: 0px 5px;
+    padding: 5px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+#send-mail, #emails-view  p, #emails-view  b{
+    margin: 5px;
+    display: inline-block;
+}
+#emails-view  p:last-child{
+    float: right;
+    font-weight: lighter;
+}
