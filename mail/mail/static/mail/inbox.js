@@ -163,6 +163,7 @@ function populate(mailbox) {
                   })
                 })
                 load_mailbox('inbox');
+                window.location.reload();
               }
             }
           }
@@ -188,6 +189,7 @@ function populate(mailbox) {
                   })
                 })
                 load_mailbox('inbox');
+                window.location.reload();
               }
             }
           }
