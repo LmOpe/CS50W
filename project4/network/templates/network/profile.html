@@ -1,0 +1,24 @@
+{% extends "network/layout.html" %}
+
+{% load static %}
+
+{% block body %}
+<hr>
+<h4 id="user"></h4>
+{% if user.is_authenticated %}
+    <button id="follow">Follow</button>
+    <button id="unfollow">Unfollow</button>
+{% endif %}
+<div id="followers">
+
+</div>
+<div id="followings">
+
+</div>
+
+<hr>
+<div id="user-posts">
+
+</div>
+{% endblock %}
+    <script src="/network/network.js"></script>

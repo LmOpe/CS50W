@@ -1,0 +1,71 @@
+{% extends "network/layout.html" %}
+
+{% load static %}
+
+{% block body %}
+<section id="posts-page">
+    {% if user.is_authenticated %}
+    <div id="response"></div>
+    <div id="new_post">
+        <form id="post-form">
+            {% csrf_token %}
+            <label>Write a post</label>
+            <textarea required aria-label="Write a post" type="text" id="content" cols="80" rows="3"></textarea>
+            <input type="submit" id="submit_post" value="Post" class="btn btn-sm btn-primary" />
+        </form>
+    </div>
+    {% endif %}
+    <div id="posts">
+        {% for post in page_obj %}
+        <div class="post">
+        {% if post.poster == user %}
+        <button class="btn btn-primary edit">Edit</button>
+        {% endif %}
+        <h5 class="poster">{{ post.poster }}</h5>
+        <hr>
+        <p class="post-content">{{ post.content }}</p>
+        <p class="time">{{ post.time }}</p>
+        <p class="likes"><a class="like" href=#><span class="id" hidden>{{ post.id }}</span>&hearts;</a>{{ post.likes }}</p>
+        </div>
+        {% endfor %}
+        <div class="pagination">
+            <span class="step-links">
+                {% if page_obj.has_previous %}
+                <a class="page-item" href="posts?page=1&check={{check}}">&laquo; first</a><a class="page-item" href="posts?page={{ page_obj.previous_page_number }}&check={{check}}">previous</a>
+                {% endif %}
+                {% if page_obj %}
+                <span class="current">Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.</span>
+                {% endif %}
+                {% if page_obj.has_next %}
+                <a class="page-item" href="posts?page={{ page_obj.next_page_number }}&check={{check}}">next</a>
+                <a class="page-item" href="posts?page={{ page_obj.paginator.num_pages }}&check={{check}}">last &raquo;</a>
+                {% endif %}
+            </span>
+        </div>
+    </div>
+</section>
+<section id="profile-page">
+    <hr>
+    <h4 id="user"></h4>
+    {% if user.is_authenticated %}
+    <div id="fol">
+        <button class="btn" id="follow">Follow</button>
+        <button class="btn" id="unfollow">Unfollow</button>
+    </div>
+    {% endif %}
+    <div id="followers">
+
+    </div>
+    <div id="followings">
+
+    </div>
+
+    <hr>
+    <div id="user-posts">
+
+    </div>
+</section>
+{% endblock %}
+{% block script %}
+<script src="{% static 'network/network.js' %}"></script>
+{% endblock %}

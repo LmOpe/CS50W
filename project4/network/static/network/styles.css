@@ -1,0 +1,99 @@
+.likes{
+    font-size: 30px;
+}
+
+.toggler{
+    display: none;
+}
+
+@media (max-width: 991px) {
+    .navbar-expand-lg{
+        display: none;
+    }
+    .toggler{
+        margin: 10px;
+        padding: 5px;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+    }
+    #hide{
+        display: none;
+    }
+}
+@media (min-width: 992px){
+    .navbar-expand-lg{
+        display: flex !important;
+    }
+}
+.poster, .like, #follow, #unfollow, .edit, #submit_post{
+    cursor: pointer;
+}
+
+.post{
+    margin: 5px;
+    padding: 5px;
+    border: 1px solid rgb(192, 192, 192);
+}
+#post-form{
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+}
+#new_post{
+    border: 1px solid rgb(180, 180, 180);
+    padding: 5px;
+    margin: 5px;
+}
+#content{
+    margin: 5px;
+    border: 1px solid gray;
+}
+
+.post-content{
+    font-weight: 500;
+}
+
+.time{
+    color: rgb(138, 138, 138);
+}
+#followings, #followers{
+    border: 1px solid rgb(163, 163, 163);
+    margin: 5px;
+    padding: 5px;
+}
+.following, .follower{
+    margin: 10px;
+    padding: 5px;
+    border: 1px solid rgb(151, 151, 151);
+    display: inline-block;
+    border-radius: 5px;
+}
+
+#follow, #unfollow{
+    margin: 10px;
+    padding: 5px;
+    border: 1px solid blue;
+    color: blue;
+    width: 100px !important;
+}
+#user{
+    margin: 10px;
+}
+
+.page-item{
+    width: 50px !important;
+    height: 50px !important;
+    padding: 5px;
+    margin: 5px;
+    border: 1px solid rgb(194, 194, 194);
+    border-radius: 5px;
+}
+.pagination{
+    margin: 5px;
+    margin-top: 10px;
+}
+#submit_post{
+    width: 50px;
+}
